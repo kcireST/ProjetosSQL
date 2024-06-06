@@ -1,0 +1,13 @@
+CREATE TABLE CLIENTE ( cd_cliente INT PRIMARY KEY, nm_cliente INT, nm_endereco VARCHAR(n), cd_telefone INT, ds_email VARCHAR(n), dt_nascimento DATE, cd_cpf INT, cd_rg INT, );
+
+CREATE TABLE PRODUTO ( id_produto INT PRIMARY KEY, nm_produto CHAR(n) DEFAULT '30', ds_descricao VARCHAR(n), nm_categoria CHAR(n) DEFAULT '30', vl_preco INT, qt_estoque INT, nm_marca CHAR(n), nm_fornecedor INT, );
+
+CREATE TABLE FUNCIONARIO ( cd_funcionario INT PRIMARY KEY, nm_funcionario VARCHAR(n), nm_cargo_funcionario VARCHAR(n), vl_salario INT, dt_admissão DATE, nm_endereco VARCHAR(n), cd_telefone INT, ds_email INT, );
+
+CREATE TABLE VENDA ( cd_venda INT PRIMARY KEY, dt_venda DATE, hr_venda INT, vl_total INT,
+
+nm_forma_pagamento VARCHAR(n), idCLIENTE INT, idFUNCIONARIO INT, );
+
+CREATE TABLE ITEM_VENDA ( cd_item_venda INT PRIMARY KEY, qt_item_venda INT, vl_preco_unitario INT, idVENDA INT, idPRODUTO INT, );
+
+ALTER TABLE VENDA ADD FOREIGN KEY(idCLIENTE) REFERENCES CLIENTE (idCLIENTE) ALTER TABLE VENDA ADD FOREIGN KEY(idFUNCIONARIO) REFERENCES FUNCIONARIO (idFUNCIONARIO) ALTER TABLE ITEM_VENDA ADD FOREIGN KEY(idVENDA) REFERENCES VENDA (idVENDA) ALTER TABLE ITEM_VENDA ADD FOREIGN KEY(idPRODUTO) REFERENCES PRODUTO (idPRODUTO)
