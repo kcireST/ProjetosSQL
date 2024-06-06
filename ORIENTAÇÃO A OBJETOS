@@ -1,0 +1,15 @@
+CREATE TYPE juridica UNDER pessoa(
+
+cd_inscricao_estadual VARCHAR(30),
+
+cd_cnpj CHAR(14)
+
+)
+
+CREATE TABLE pessoa_juridica OF JURIDICA
+
+INSERT INTO pessoa_juridica
+
+VALUES (1, 'Juliana', '0000000','55555555555')
+
+SELECT * FROM pessoa_juridica
