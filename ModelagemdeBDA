@@ -1,0 +1,21 @@
+CREATE TABLE CLIENTE (
+id_cliente INT PRIMARY KEY,
+cd_cpf VARCHAR(11),
+cd_cnpj VARCHAR(14),
+nm_cliente VARCHAR(50) NOT NULL,
+nm_endereco VARCHAR(50)
+);
+
+CREATE TABLE PRODUTO (
+cd_produto INT PRIMARY KEY,
+vl_produto NUMBER
+nm_produto VARCHAR (50)
+);
+
+CREATE TABLE NOTA_FISCAL (
+cd_nota INT PRIMARY KEY,
+dt_emissao DATE NOT NULL,
+id_cliente INT,
+vl_total NUMBER NOT NULL,
+cd_produto INT,
+nm_endereco_entrega VARCHAR(100) NOT NULL,
