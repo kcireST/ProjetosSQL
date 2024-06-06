@@ -1,0 +1,33 @@
+CREATE OR REPLACE VIEW vw_cargo (ID, nome) AS SELECT job_id, job_title FROM jobs
+
+DESC vw_cargo
+
+SELECT * FROM vw_cargo WHERE nome LIKE '%i%'
+
+SELECT * FROM user_views
+
+INSERT INTO vw_cargo (ID, nome) VALUES ('PL', 'Programador PL/SQL')
+
+CREATE OR REPLACE VIEW vw_cargo (ID, nome) AS SELECT job_id, job_title FROM jobs WITH READ ONLY
+
+INSERT INTO vw_cargo (ID, nome) VALUES ('ES', 'Engenheiro de Software')
+
+DROP VIEW vw_cargo
+
+CREATE SYNONYM cargo FOR jobs
+
+CREATE TABLE aluno (
+
+id_matricula INTEGER PRIMARY KEY,
+
+nm_aluno VARCHAR(20)
+
+)
+
+CREATE SEQUENCE seq_aluno START WITH 10 INCREMENT BY 10
+
+INSERT INTO aluno (id_matricula, nm_aluno) VALUES (seq_aluno.NEXTVAL, 'João')
+
+INSERT INTO aluno (id_matricula, nm_aluno) VALUES (seq_aluno.NEXTVAL, 'Maria')
+
+INSERT INTO aluno (id_matricula, nm_aluno) VALUES (seq_aluno.NEXTVAL, 'Pedro')
